@@ -1,38 +1,252 @@
-.App {
+:root{
+  --blue: #3772FF;
+  --red: #DF2935;
+  --lightblue: #EEF7FF;
+
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+header{
+  width: 100%;
+  height: 10vh;
+  background-color: var(--blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.MobileTop{
+  display: none;
+  height: 7vh;
+  align-items: center;
+}
+.MobileTop input{
+  margin-right: 5%;
+}
+#search{
+  display: none;
+  width: 10%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.logo{
+  width: 12%;
+  height: 100%;
+}
+.logo img{
+  width: 100%;
+  height: 100%;
+}
+.navs{
+  width: 90%;
+}
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+nav button, a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+}
+
+i{
+  font-size: large;
+}
+nav button:focus, nav button:hover,a:hover,a:focus{
+  color: white;
+}
+.ads{
+  display: flex;
+  justify-content: center;
+}
+.adsBoard{
+  width: 90%;
+  background-color: grey;
+  height: 70vh;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading{
+  padding-top: 5%;
+  padding-left: 2%;
+}
+.subheading{
+  padding-left: 4%;
+  color: grey;
+  padding-bottom: 1%;
+}
+.productGrid{
+  padding-left: 2%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  row-gap: 5%;
+}
+.productCard{
+  width: 90%;
+  height: 23em;
+  background-color: var(--lightblue);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.PImage{
+  border-radius: 30px;
+  width: 100%;
+  height: 78%;
+  margin-top: -2%;
+  margin-bottom: 3%;
+}
+.PImage img{
+  width: 100%;
+  height: 90%;
+}
+.brief h5{
+  margin-top:3%;
+  margin-bottom: 3%;
+  color: var(--red);
+}
+.brief{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.brief button , .PImage button{
+  border: none;
+  outline: none;
+  margin: 5%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.brief button:focus, .PImage button:focus{
+  color: #DF2935;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.catPopUp , .profilePopUp{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  position: absolute;
+  padding: 2%;
+  width: 20%;
+  height: 20%;
+  top: 7%;
+  left: 35%;
+  border-radius: 20px;
+  background-color: var(--lightblue);
+}
+.profilePopUp{
+  left: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+h2{
+  text-align: center;
+  background-color: var(--lightblue);
+}
+.cartList{
+  background-color: var(--lightblue);
+  width: 100%;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 2%;
+}
+b{
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin-bottom: 2%;
+  border: dotted .5px;
+}
+.loginPage{
+  width: 100%;
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.card{
+  background-color: var(--lightblue);
+  width: 30%;
+  height: 50vh;
+  border: solid rgba(0, 0, 0, .2);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  width: 50%;
+  height: 10%;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--blue);
+}
+.btn button{
+  width: 85%;
+  height: 100%;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--blue);
+}
+.buttomNav{
+  display: none;
+  position: sticky;
+  bottom: 0%;
+  background-color: var(--blue);
+  width: 100%;
+  height: 7vh;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.buttomNav button{
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+@media screen and (max-width: 768px) {
+  header{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .MobileTop{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 2%;
   }
+  .loginPage{
+    overflow: hidden;
+  }
+  .card{
+    width: 100%;
+  }
+  #search{
+    height: 5vh;
+    padding-right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .productGrid{
+  grid-template-columns: repeat(2,1fr);
+  margin-bottom: 50%;
+  }
+  .buttomNav{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
 }
