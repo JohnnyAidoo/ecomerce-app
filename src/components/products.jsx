@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './productCard';
+import axios from 'axios'
 
 function Products() {
-    const [product , setproduct] = useState()
+
+    const [product , setproduct] = useState([])
 
     useEffect(() =>{
-        fetch('/api').then((res) =>{
-            res.json().then((data) =>{
-                console.log(data)
-            })
-        })
+       axios.get('/index').then((res) =>{
+        setproduct(res.data)
+    })
     },[])
 
-
+    
     return ( 
         <>
         <h1 className='heading'>Trending Hot</h1>
         <h3 className='subheading'>Clothing and Accessories</h3>
         <div className='productGrid'>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
+        {product.map(item =>(
+            <ProductCard 
+            key={item.postAuthurId}
+            postImage={item.postImage}
+            postTitle={item.postTitle} 
+            postPrice ={item.postPrice}/>
+        ))}
         </div>
         </>
      );

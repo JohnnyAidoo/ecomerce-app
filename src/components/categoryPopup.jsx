@@ -3,14 +3,13 @@ import React from 'react';
 function CatPopUp() {
     return ( 
         <div className='catPopUp'>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
+            <a>clothings</a>
+            <a>automobiles</a>
+            <a>phones and accessories</a>
+            <a>computers and accessories</a>
+            <a>TVs and more</a>
+            <a>edibles</a>
+            <a>others</a>
         
         </div>
      );
