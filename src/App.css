@@ -131,7 +131,7 @@ nav button:focus, nav button:hover,a:hover,a:focus{
   outline: none;
   margin: 5%;
 }
-.brief button:focus, .PImage button:focus{
+.brief button:focus, .PImage .btnON{
   color: #DF2935;
 }
 .catPopUp , .profilePopUp{
@@ -239,7 +239,6 @@ b{
   align-items: center;
   border-radius: 30px;
   padding: 5%;
-  
 }
 .addpost form input{
   width: 100%;
@@ -251,9 +250,10 @@ b{
   display: flex;
   border-radius: 20px;
   color: #EEF7FF;
-  font-weight: 700;
+  font-weight: 300;
   justify-content: center;
   align-items: center;
+  font-size: medium;
 }
 #btns{
   display: flex;

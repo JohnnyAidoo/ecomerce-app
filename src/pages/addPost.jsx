@@ -1,19 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function AddPost() {
     const [titlechange , settitlechange] = useState('')
     const [pricechange , setpricechange] = useState('')
     const [imgchange , setimgchange] = useState()
     const [catchange , setcatchange] = useState('clothings')
+    const nav = useNavigate()    
 
     const [post ,setpost] = useState({
-        "postAuthur":"",
-        "postAuthurId":"",
+        "postImage":undefined,
         "postTitle":"",
-        "postImage":"",
-        "postPrice":"",
+        "postPrice":0,
         "postCategory":""
     })
 
@@ -21,7 +21,7 @@ function AddPost() {
         settitlechange(e.target.value)
     }
     const addimg = (e) =>{
-        setimgchange(e.target.value)
+        setimgchange(e.target.files[0])
     }
     const addprice = (e) =>{
         setpricechange(e.target.value)
@@ -29,29 +29,39 @@ function AddPost() {
     const addCat = (e) =>{
         setcatchange(e.target.value)
     }
-    onsubmit =(e) => {
-        e.preventDefault()
+    
+    const assignValues = () =>{
         setpost({
-            "postAuthur": "admin",
-            "postAuthurId":2,
-            "postTitle": titlechange,
             "postImage": imgchange,
+            "postTitle": titlechange,
             "postPrice":pricechange,
             "postCategory":catchange
         })
-        axios.post('http://127.0.0.1:8000/index/',setpost).then((res) =>{
-            console.log(res)
+    }
+
+    let url = 'http://127.0.0.1:8000/api/post/'
+    onsubmit =(e) => {
+        e.preventDefault()
+        axios.post(url,post,{
+            headers:{
+                'content-type':'multipart/form-data'
+            }
+        }).then((res) =>{
+            alert('success')            
+            nav('/')
         }).catch((err) =>{
-            console.log(err)
-            alert('someting went wrong')
+            alert('something went wrong')
         })
     }
+    const clickCancel = () =>{
+        
+    }
     return ( 
-        <div className='addpost'>
+        <div onChange={assignValues} className='addpost'>
             <h1>ADD POST</h1>
             <form action="post">
                 <input type="text" placeholder='title' id='title' onChange={addTitle}/>
-                <input type="file" required='image/png' placeholder='images' onChange={addimg}/>
+                <input type="file" placeholder='images' accept='image/jpeg, image/png, image/gif' onChange={addimg}/>
                 <input type="number" placeholder='price' onChange={addprice}/>
                 <div>
                     <span>category :</span>
@@ -68,7 +78,7 @@ function AddPost() {
                 </div>
                 <span id='btns'>
                     <button type="submit">POST</button>
-                    <button  id='cancel'>CANCEL</button>
+                    <button  id='cancel' >CANCEL</button>
                 </span>
             </form>
         </div>

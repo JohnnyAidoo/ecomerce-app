@@ -1,8 +1,8 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
+from rest_framework.routers import DefaultRouter
 from . import views
 
-urlpatterns = [
-    path('index/',views.index, name='index'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+router = DefaultRouter()
+router.register(r'post',views.PostViewset, basename='post')
+router.register(r'register',views.RegisterViewset, basename='regsister')
+urlpatterns = router.urls

@@ -1,13 +1,14 @@
 from django.db import models
 
 # Create your models here.
+class Users(models.Model):
+    userName = models.CharField(max_length=200 , unique=True)
+    userContact = models.IntegerField()
+    userEmail = models.EmailField(default='null', unique=True)
+    userPassword = models.CharField(max_length=200)
+    
 class Posts(models.Model):
-    postAuthur = models.CharField(max_length=200)
-    postAuthurId = models.IntegerField()
-    postImage = models.ImageField(max_length=10000)
-    postTitle = models.CharField(max_length=200)
+    postImage = models.ImageField(max_length=10000, default='null')
+    postTitle = models.CharField(max_length=200, default='null')
     postPrice = models.IntegerField()
-    postCategory = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
+    postCategory = models.CharField(max_length=200,default='null')

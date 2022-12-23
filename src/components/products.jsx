@@ -5,13 +5,20 @@ import axios from 'axios'
 function Products() {
 
     const [product , setproduct] = useState([])
-
+    const [btnON, setbtnON] =useState('')
     useEffect(() =>{
-       axios.get('/index').then((res) =>{
+       axios.get('http://127.0.0.1:8000/api/post/').then((res) =>{
         setproduct(res.data)
     })
     },[])
 
+    const setfav =() =>{
+        if (btnON != 'btnON'){
+            setbtnON('btnON')
+        }else{setbtnON('')}
+    }
+    const addcart = (e) =>{
+    }
     
     return ( 
         <>
@@ -20,7 +27,10 @@ function Products() {
         <div className='productGrid'>
         {product.map(item =>(
             <ProductCard 
-            key={item.postAuthurId}
+            key={item.id}
+            addcart={addcart}
+            setfav={setfav}
+            toggle={btnON}
             postImage={item.postImage}
             postTitle={item.postTitle} 
             postPrice ={item.postPrice}/>

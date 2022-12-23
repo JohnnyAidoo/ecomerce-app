@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from .models import Posts
-from .serializers import PostsSerializer
+from rest_framework import viewsets , generics
+from .models import Posts, Users
+from .serializers import PostsSerializer ,UserSerializer
 # Create your views here.
 
-@api_view(['GET','POST'])
-def index(request):
-    postsItems = Posts.objects.all()
-    serializer = PostsSerializer(postsItems, many=True)
-    return Response(serializer.data)
-    if request.method == 'POST':
-        serializer = PostsSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
+class PostViewset(viewsets.ModelViewSet):
+    serializer_class = PostsSerializer
+    queryset = Posts.objects.all()
+
+class RegisterViewset(generics.CreateAPIView):
+    serializer_class = UserSerializer
+    queryset = Users.objects.all()
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data = request.data)
+        serializer.is_valid()
+        self.perform_create(serializer)
         return Response(serializer.data)
+    
