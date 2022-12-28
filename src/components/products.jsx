@@ -7,7 +7,7 @@ function Products() {
     const [product , setproduct] = useState([])
     const [btnON, setbtnON] =useState('')
     useEffect(() =>{
-       axios.get('http://127.0.0.1:8000/api/post/').then((res) =>{
+       axios.get('https://web-production-729b.up.railway.app/api/post/').then((res) =>{
         setproduct(res.data)
     })
     },[])

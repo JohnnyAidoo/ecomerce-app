@@ -39,7 +39,7 @@ function AddPost() {
         })
     }
 
-    let url = 'http://127.0.0.1:8000/api/post/'
+    let url = 'https://web-production-729b.up.railway.app/api/post/'
     onsubmit =(e) => {
         e.preventDefault()
         axios.post(url,post,{
