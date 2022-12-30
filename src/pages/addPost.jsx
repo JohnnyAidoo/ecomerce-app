@@ -42,6 +42,7 @@ function AddPost() {
     let url = 'https://web-production-729b.up.railway.app/api/post/'
     onsubmit =(e) => {
         e.preventDefault()
+        alert('creating post .... click OK and wait')
         axios.post(url,post,{
             headers:{
                 'content-type':'multipart/form-data'
@@ -53,9 +54,10 @@ function AddPost() {
             alert('something went wrong')
         })
     }
-    const clickCancel = () =>{
-        
-    }
+    const oncancel = (e) => {
+    alert('do want to cancel')
+    nav('/')
+}
     return ( 
         <div onChange={assignValues} className='addpost'>
             <h1>ADD POST</h1>
@@ -78,7 +80,7 @@ function AddPost() {
                 </div>
                 <span id='btns'>
                     <button type="submit">POST</button>
-                    <button  id='cancel' >CANCEL</button>
+                    <button onCancel = {oncancel} type='reset' id='cancel' >CANCEL</button>
                 </span>
             </form>
         </div>

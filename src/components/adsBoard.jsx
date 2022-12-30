@@ -4,7 +4,7 @@ function AdsBoard() {
     return ( 
         <div className='ads'>
             <div className='adsBoard'>
-                <b>ADS</b>
+                <img src="https://c0.wallpaperflare.com/preview/447/552/983/ecommerce-online-shop-euro.jpg" alt="" />
             </div>
 
         </div>

@@ -23,7 +23,7 @@ function Products() {
     return ( 
         <>
         <h1 className='heading'>Trending Hot</h1>
-        <h3 className='subheading'>Clothing and Accessories</h3>
+        <h3 className='subheading'>Latest Products</h3>
         <div className='productGrid'>
         {product.map(item =>(
             <ProductCard 

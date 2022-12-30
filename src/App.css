@@ -76,12 +76,16 @@ nav button:focus, nav button:hover,a:hover,a:focus{
 }
 .adsBoard{
   width: 90%;
-  background-color: grey;
+  background-color: var(--lightblue);
   height: 70vh;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.adsBoard img{
+  width: 100%;
+  max-height: 100%;
 }
 .heading{
   padding-top: 5%;
@@ -321,6 +325,13 @@ b{
   grid-template-columns: repeat(2,1fr);
   margin-bottom: 50%;
   }
+  .productCard{
+    height: fit-content;
+  }
+  .productCard .PImage{
+    height: fit-content;
+    margin-bottom: 2em;
+  } 
   .buttomNav{
     position: fixed;
     display: flex;
