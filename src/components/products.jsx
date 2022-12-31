@@ -5,18 +5,13 @@ import axios from 'axios'
 function Products() {
 
     const [product , setproduct] = useState([])
-    const [btnON, setbtnON] =useState('')
     useEffect(() =>{
        axios.get('https://web-production-729b.up.railway.app/api/post/').then((res) =>{
         setproduct(res.data)
     })
     },[])
 
-    const setfav =() =>{
-        if (btnON != 'btnON'){
-            setbtnON('btnON')
-        }else{setbtnON('')}
-    }
+    
     const addcart = (e) =>{
     }
     
@@ -29,8 +24,6 @@ function Products() {
             <ProductCard 
             key={item.id}
             addcart={addcart}
-            setfav={setfav}
-            toggle={btnON}
             postImage={item.postImage}
             postTitle={item.postTitle} 
             postPrice ={item.postPrice}/>
