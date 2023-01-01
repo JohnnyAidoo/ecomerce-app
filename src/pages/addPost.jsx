@@ -80,7 +80,7 @@ function AddPost() {
                 </div>
                 <span id='btns'>
                     <button type="submit">POST</button>
-                    <button onCancel = {oncancel} type='reset' id='cancel' >CANCEL</button>
+                    <button onClick= {oncancel} type='reset' id='cancel' >CANCEL</button>
                 </span>
             </form>
         </div>
