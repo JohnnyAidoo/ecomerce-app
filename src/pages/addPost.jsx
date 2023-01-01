@@ -55,8 +55,9 @@ function AddPost() {
         })
     }
     const oncancel = (e) => {
-    alert('do want to cancel')
-    nav('/')
+            
+        alert('do want to cancel')
+        nav('/')
 }
     return ( 
         <div onChange={assignValues} className='addpost'>
@@ -80,7 +81,7 @@ function AddPost() {
                 </div>
                 <span id='btns'>
                     <button type="submit">POST</button>
-                    <button onCancel = {oncancel} type='reset' id='cancel' >CANCEL</button>
+                    <button onClick = {oncancel} type='reset' id='cancel' >CANCEL</button>
                 </span>
             </form>
         </div>
