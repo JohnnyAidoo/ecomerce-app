@@ -19,6 +19,9 @@ function Header(props) {
     return ( 
         <>
         <div className='MobileTop'>
+            <div className='logo'>
+                <a href="/"><img src={logo} alt="logo" /> </a>
+            </div>            
             {input}
             <button id='search' onClick={showInput}><i className='fa fa-search' ></i></button>
 
