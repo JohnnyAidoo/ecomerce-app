@@ -187,12 +187,46 @@ b{
   display: flex;
   justify-content: center;
   align-items: center;
+  background: radial-gradient(var(--lightblue),var(--blue));
+} 
+.loginPage .card form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+  width: 50%;
+}
+.loginPage .card form input{
+  border: none;
+  outline: none;
+  padding: 3%;
+  border-radius: 30px;
+  background-color: rgba(128, 128, 128, 0.311);
+
+}
+.loginPage .card form input::placeholder{
+padding-left: 5%;
+color: var(--blue);
+}
+.loginPage h4{
+  text-align: center;
+}
+
+.loginPage .card form button{
+  background-color: var(--blue);
+  color: #EEF7FF;
+  padding: 5%;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+}
+.loginPage .card p{
+  text-align: center;
 }
 .card{
   background-color: var(--lightblue);
   width: 30%;
   height: 50vh;
-  border: solid rgba(0, 0, 0, .2);
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -309,6 +343,9 @@ b{
   .logo{
     width: 30%;
   }
+  .logo img{
+    border-radius: 30px;
+  }
   .MobileTop{
     border-radius: 30px 30px 0px 0px ;
     border: solid .5px var(--blue);
@@ -322,6 +359,7 @@ b{
   }
   .card{
     width: 100%;
+    background: rgba(255, 255, 255, 0.2);
   }
   #search{
     height: 5vh;
