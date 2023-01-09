@@ -193,7 +193,7 @@ b{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 60%;
+  height: 70%;
   width: 50%;
 }
 .loginPage .card form input{
