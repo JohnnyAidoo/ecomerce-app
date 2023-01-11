@@ -20,8 +20,8 @@ function LoginPage(props) {
     
     let authenticated = false
 
-    const url = ('http://127.0.0.1:8000/api/login/')
-    const userUrl = ('http://127.0.0.1:8000/api/users/')
+    const url = ('https://web-production-729b.up.railway.app/api/login/')
+    const userUrl = ('https://web-production-729b.up.railway.app/api/users/')
 
     onsubmit = (e) =>{
         e.preventDefault()

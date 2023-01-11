@@ -43,7 +43,7 @@ function SignUpPage() {
         if(password != password2){
             alert('password does no match')
         }else{
-            axios.post('http://127.0.0.1:8000/api/register/', credentials).then(info =>{
+            axios.post('https://web-production-729b.up.railway.app/api/register/', credentials).then(info =>{
                 console.log(info)
             }).catch(err =>{
                 console.log(err)
