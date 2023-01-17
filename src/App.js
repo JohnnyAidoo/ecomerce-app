@@ -6,35 +6,34 @@ import LoginPage from './pages/loginPage';
 import AddPost from './pages/addPost';
 import SignUPPage from './pages/signUP';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Auth from './components/api';
-import { render } from 'react-dom';
+import jwtDecode from 'jwt-decode';
 
 
 
 
 function App() {
   const [auth, setauth] = useState(false)
+//  const [token, setToken] = useState('')
   const navigate = useNavigate()
 
-  useEffect(() => {
-    auth ? navigate('/') : navigate('/login')
-  },[auth])
-  
-  const checkauth = (data) =>{
+
+  const checkauth = (data) => {
     setauth(data)
-    console.log(data)
   }
+  useEffect(()=>{
+    localStorage.getItem('token')
+  //  console.log(jwtDecode(localStorage.getItem('token')))
+  })
 
 
   return (
     <>
     <Routes>
-      <Route path='/' element={<HomePage/>} />
+      <Route path='/' element={<HomePage Auth={auth}/>}/>
       <Route path='/mycarts' element={<Cart/>}/> 
-      <Route path='/login' element={<LoginPage checkauth={checkauth}/>} />
+      <Route path='/auth/login' element={<LoginPage checkauth={checkauth}/>} />
       <Route path='/addpost' element={<AddPost/>} />
-      <Route path='/signup' element={<SignUPPage/>} />
+      <Route path='/auth/signup' element={<SignUPPage />} />
     </Routes>
     </>
 

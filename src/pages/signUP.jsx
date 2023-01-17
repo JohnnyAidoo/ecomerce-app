@@ -43,7 +43,7 @@ function SignUpPage() {
         if(password != password2){
             alert('password does no match')
         }else{
-            axios.post('https://web-production-729b.up.railway.app/api/register/', credentials).then(info =>{
+            axios.post('http://127.0.0.1:8000/api/users/', credentials).then(info =>{
                 console.log(info)
             }).catch(err =>{
                 console.log(err)
@@ -60,7 +60,8 @@ function SignUpPage() {
                     <input placeholder='password' onChange={passwordchange} type="password" name="password1" id="password1" />
                     <input placeholder='Re-type password' onChange={password2change} type="password" name="password2" id="password2" />
                     <button type="submit">SignUp</button>
-                    <p>Have Account? <span><a href="/login">Login Up</a></span></p>
+                    <p>Have Account? <span><a href="/auth/
+                    login">Login Up</a></span></p>
                 </form>    
             </div>
         </div>

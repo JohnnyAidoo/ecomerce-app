@@ -8,8 +8,8 @@ function ButtomNav() {
             <a href='/'><i className='fa fa-house'></i></a>
             <a href='#'><i className='fa fa-sort'></i></a>
             <a href='/addpost'><i className='fa fa-plus'></i></a>
-            <a href='saved'><i className='fa fa-heart'></i></a>
-            <a href='/login'><i className='fa fa-user'></i></a>
+            <a href='/mycarts'><i className='fa fa-shopping-cart'></i></a>
+            <a href='/profile'><i className='fa fa-user'></i></a>
         </div>
      );
 }

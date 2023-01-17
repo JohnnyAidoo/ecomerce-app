@@ -1,14 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { parsePath, useNavigate } from 'react-router-dom';
-import App from '../App';
-import ProfilePopUP from '../components/profilePopUp';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage(props) {
-    const nav = useNavigate()    
     const [username, setusername] = useState('')
     const [password, setpassword] = useState('')
-    
+    const navigate = useNavigate()
+    let token = ''
     const usernamechange = (e) =>{
         setusername(e.target.value)
     }
@@ -20,9 +18,8 @@ function LoginPage(props) {
     
     let authenticated = false
 
-    const url = ('https://web-production-729b.up.railway.app/api/login/')
-    const userUrl = ('https://web-production-729b.up.railway.app/api/users/')
-
+    const url = ('http://127.0.0.1:8000/api/login/')
+    
     onsubmit = (e) =>{
         e.preventDefault()
         loginUser()
@@ -36,16 +33,18 @@ function LoginPage(props) {
         })).then(data =>{
             authenticated = true
             passauth()
-            console.log(data)
+            token = data.data.access
             alert('Login Success')
-                
+            navigate('/')    
         }).catch(err =>{
                 console.log(err)
                 alert('Invailed Username or Password')
             })            
     }
+    
     function passauth() {
         props.checkauth(true)
+        localStorage.setItem('token',token)
     }
     return (
     <div>
@@ -56,7 +55,7 @@ function LoginPage(props) {
                     <input placeholder='Username' onChange={usernamechange} type="text" name="username" id="username" />
                     <input placeholder='Password' onChange={passwordchange} type="password" name="password" id="password" />
                     <button onClick={loginUser} type="submit">Login</button>
-                    <p>Not Registered yet? <span><a href="/signup">Sign Up</a></span></p>
+                    <p>Not Registered yet? <span><a href="/auth/signup" >Sign Up</a></span></p>
                 </form>    
             </div>
         </div>
