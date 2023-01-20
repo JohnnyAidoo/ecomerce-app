@@ -60,8 +60,7 @@ function SignUpPage() {
                     <input placeholder='password' onChange={passwordchange} type="password" name="password1" id="password1" />
                     <input placeholder='Re-type password' onChange={password2change} type="password" name="password2" id="password2" />
                     <button type="submit">SignUp</button>
-                    <p>Have Account? <span><a href="/auth/
-                    login">Login Up</a></span></p>
+                    <p>Have Account? <span><a href="/auth/login">Login Up</a></span></p>
                 </form>    
             </div>
         </div>
