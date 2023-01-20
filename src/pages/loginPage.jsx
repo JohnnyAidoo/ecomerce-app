@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import url from '../components/privateRouter';
 
 function LoginPage(props) {
     const [username, setusername] = useState('')
@@ -18,7 +19,7 @@ function LoginPage(props) {
     
     let authenticated = false
 
-    const url = ('http://127.0.0.1:8000/api/login/')
+    const URL = (url+'/api/login/')
     
     onsubmit = (e) =>{
         e.preventDefault()
@@ -27,7 +28,7 @@ function LoginPage(props) {
     
 
     const loginUser = () =>{
-        axios.post(url,({
+        axios.post(URL,({
             "username": username,
             "password": password
         })).then(data =>{

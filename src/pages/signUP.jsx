@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import url from '../components/privateRouter';
 
 
 
@@ -43,7 +44,7 @@ function SignUpPage() {
         if(password != password2){
             alert('password does no match')
         }else{
-            axios.post('http://127.0.0.1:8000/api/users/', credentials).then(info =>{
+            axios.post(url+'/api/users/', credentials).then(info =>{
                 console.log(info)
             }).catch(err =>{
                 console.log(err)

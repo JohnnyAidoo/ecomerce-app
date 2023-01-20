@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './productCard';
 import axios from 'axios'
+import url from './privateRouter';
 
 function Products() {
 
     const [product , setproduct] = useState([])
     useEffect(() =>{
-       axios.get('https://web-production-729b.up.railway.app/api/post/').then((res) =>{
+       axios.get(url+'/api/post/').then((res) =>{
         setproduct(res.data)
     })
     },[])
