@@ -7,6 +7,7 @@ import AddPost from './pages/addPost';
 import SignUPPage from './pages/signUP';
 import { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
+import Profile from './pages/profile';
 
 
 
@@ -34,6 +35,7 @@ function App() {
       <Route path='/auth/login' element={<LoginPage checkauth={checkauth}/>} />
       <Route path='/addpost' element={<AddPost/>} />
       <Route path='/auth/signup' element={<SignUPPage />} />
+      <Route path='/user/profile' element={<Profile/>} />
     </Routes>
     </>
 
