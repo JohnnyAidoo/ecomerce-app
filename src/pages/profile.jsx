@@ -11,6 +11,8 @@ function Profile() {
 
     return ( 
         <>
+        <a href="/">Go To Home</a>
+        <br />
         <h1>Site in progress</h1>
         <button onClick={logout}>LOG OUT</button>
         </>
