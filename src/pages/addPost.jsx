@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import url from '../components/privateRouter';
 
 function AddPost() {
     const [titlechange , settitlechange] = useState('')
@@ -39,11 +40,11 @@ function AddPost() {
         })
     }
 
-    let url = 'https://web-production-729b.up.railway.app/api/post/'
+    let URL = url+'/api/post/'
     onsubmit =(e) => {
         e.preventDefault()
         alert('creating post .... click OK and wait')
-        axios.post(url,post,{
+        axios.post(URL,post,{
             headers:{
                 'content-type':'multipart/form-data'
             }

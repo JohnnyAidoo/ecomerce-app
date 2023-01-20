@@ -41,6 +41,7 @@ function SignUpPage() {
         })        
     }
 
+    console.log(credentials)
     onsubmit = (e) =>{
         e.preventDefault()
         if(password != password2){
