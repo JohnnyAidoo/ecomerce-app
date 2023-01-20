@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import url from '../components/privateRouter';
 
 
-
 function SignUpPage() {
+
+    const navigate = useNavigate()
 
     const [username, setusername] = useState('')
     const [email, setemail] = useState('')
@@ -46,6 +48,7 @@ function SignUpPage() {
         }else{
             axios.post(url+'/api/users/', credentials).then(info =>{
                 console.log(info)
+                navigate('/auth/login')
             }).catch(err =>{
                 console.log(err)
             })
