@@ -47,7 +47,7 @@ function SignUpPage() {
         if(password != password2){
             alert('password does no match')
         }else{
-            axios.post(url+'/api/users/', credentials).then(info =>{
+            axios.post(url+'/api/register/', credentials).then(info =>{
                 console.log(info)
                 navigate('/auth/login')
             }).catch(err =>{

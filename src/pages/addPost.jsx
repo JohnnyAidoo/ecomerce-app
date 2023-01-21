@@ -8,6 +8,7 @@ function AddPost() {
     const [titlechange , settitlechange] = useState('')
     const [pricechange , setpricechange] = useState('')
     const [imgchange , setimgchange] = useState()
+    const [deschange , setdeschange] = useState()
     const [catchange , setcatchange] = useState('clothings')
     const nav = useNavigate()    
 
@@ -15,6 +16,7 @@ function AddPost() {
         "postImage":undefined,
         "postTitle":"",
         "postPrice":0,
+        "postDescription":"",
         "postCategory":""
     })
 
@@ -30,12 +32,15 @@ function AddPost() {
     const addCat = (e) =>{
         setcatchange(e.target.value)
     }
-    
+    const addDes = (e) =>{
+        setdeschange(e.target.value)
+    }
     const assignValues = () =>{
         setpost({
             "postImage": imgchange,
             "postTitle": titlechange,
             "postPrice":pricechange,
+            "postDescription": deschange,
             "postCategory":catchange
         })
     }
@@ -43,6 +48,7 @@ function AddPost() {
     let URL = url+'/api/post/'
     onsubmit =(e) => {
         e.preventDefault()
+        console.log(post)
         alert('creating post .... click OK and wait')
         axios.post(URL,post,{
             headers:{
@@ -50,6 +56,7 @@ function AddPost() {
             }
         }).then((res) =>{
             alert('success')            
+            console.log(res)
             nav('/')
         }).catch((err) =>{
             alert('something went wrong')
@@ -66,6 +73,7 @@ function AddPost() {
             <form action="post">
                 <input type="text" placeholder='title' id='title' onChange={addTitle}/>
                 <input type="file" placeholder='images' accept='image/jpeg, image/png, image/gif' onChange={addimg}/>
+                <input type="text" placeholder='description' name="description" id="description" onChange={addDes} />
                 <input type="number" placeholder='price' onChange={addprice}/>
                 <div>
                     <span>category :</span>
