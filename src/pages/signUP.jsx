@@ -41,7 +41,6 @@ function SignUpPage() {
         })        
     }
 
-    console.log(credentials)
     onsubmit = (e) =>{
         e.preventDefault()
         if(password != password2){
@@ -49,6 +48,7 @@ function SignUpPage() {
         }else{
             axios.post(url+'/api/register/', credentials).then(info =>{
                 console.log(info)
+                alert("You've successfully created an accoun ")
                 navigate('/auth/login')
             }).catch(err =>{
                 console.log(err)
