@@ -43,6 +43,10 @@ function SignUpPage() {
 
     onsubmit = (e) =>{
         e.preventDefault()
+        signUpUser()
+    }
+
+    const signUpUser = (e) =>{
         if(password != password2){
             alert('password does no match')
         }else{
@@ -64,7 +68,7 @@ function SignUpPage() {
                     <input placeholder='email' onChange={emailchange} type="email" name="email" id="email" />
                     <input placeholder='password' onChange={passwordchange} type="password" name="password1" id="password1" />
                     <input placeholder='Re-type password' onChange={password2change} type="password" name="password2" id="password2" />
-                    <button type="submit">SignUp</button>
+                    <button type="submit" onClick={signUpUser}>SignUp</button>
                     <p>Have Account? <span><a href="/auth/login">Login Up</a></span></p>
                 </form>    
             </div>
