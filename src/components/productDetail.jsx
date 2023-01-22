@@ -1,9 +1,11 @@
+
+
 function ProductDetail(props) {
     return ( 
         <>
-            <div className="detailcard">
+            <div className="detailCard">
                 <img src={props.image} alt="" />
-                <h4>{props.title}</h4>
+                <h4>detail</h4>
                 <b>{props.price}</b>
                 <p>{props.description}</p>
             </div>

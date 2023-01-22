@@ -337,6 +337,14 @@ color: var(--blue);
   padding-right: 20px;
   width: 70%;
 }
+.detailCard{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--lightblue);
+  display: none;
+}
 
 
 @media screen and (max-width: 768px) {
