@@ -27,7 +27,8 @@ function Products() {
             addcart={addcart}
             postImage={item.postImage}
             postTitle={item.postTitle} 
-            postPrice ={item.postPrice}/>
+            postPrice ={item.postPrice}
+            postdescription={item.postDescription}/>
         ))}
         </div>
         </>

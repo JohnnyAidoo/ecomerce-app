@@ -50,10 +50,11 @@ function SignUpPage() {
         if(password != password2){
             alert('password does no match')
         }else{
-            alert('verify information...')
+            alert('verify information... please wait')
             axios.post(url+'/api/register/', credentials).then(info =>{
                 console.log(info)
                 alert("You've successfully created an account ")
+                alert.bind('Login With Your Account')
                 navigate('/auth/login')
             }).catch(err =>{
                 console.log(err)

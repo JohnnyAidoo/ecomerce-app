@@ -80,7 +80,9 @@ nav button:focus, nav button:hover,a:hover,a:focus{
 .adsBoard{
   width: 90%;
   background-color: var(--lightblue);
-  height: 70vh;
+  height: fit-content;
+  margin-top: 2%;
+  padding: 3%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -338,12 +340,42 @@ color: var(--blue);
   width: 70%;
 }
 .detailCard{
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: var(--lightblue);
-  display: none;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detailCard #product{
+  margin-bottom: 2%;
+  display: flex;
+}
+.detailCard #product #image {
+  width: 50vw;
+}
+.detailCard #product #image img{
+  max-width: 90%;
+}
+.detailCard button{
+  margin-bottom: 3%;
+  width: 40%;
+  padding: 1%;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.detailCard #cancel{
+  align-self: flex-end;
+  width: 3%;
+
+}
+.detailCard #product #details{
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center; 
 }
 
 

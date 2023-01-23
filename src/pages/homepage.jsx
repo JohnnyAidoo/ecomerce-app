@@ -56,10 +56,9 @@ function HomePage(props) {
         <Header clickCategory={clickCategory} clickProfile={clickProfile}/>
         <AdsBoard/>
         <Products />
-        <ProductDetail/>
         {open}
         <ButtomNav/>
-
+        
         </>
      );
 }
