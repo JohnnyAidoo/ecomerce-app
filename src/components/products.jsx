@@ -6,8 +6,9 @@ import url from './privateRouter';
 function Products() {
 
     const [product , setproduct] = useState([])
+
     useEffect(() =>{
-       axios.get(url+'/api/post/').then((res) =>{
+       axios.get(url+'/api/post').then((res) =>{
         setproduct(res.data)
     })
     },[])
@@ -28,7 +29,10 @@ function Products() {
             postImage={item.postImage}
             postTitle={item.postTitle} 
             postPrice ={item.postPrice}
-            postdescription={item.postDescription}/>
+            postdescription={item.postDescription}
+            postcategory = {item.postCategory}
+            postuid = {item.uid}
+            />
         ))}
         </div>
         </>

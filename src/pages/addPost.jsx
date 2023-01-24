@@ -1,8 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import url from '../components/privateRouter';
+import jwtDecode from 'jwt-decode';
 
 function AddPost() {
     const [titlechange , settitlechange] = useState('')
@@ -10,14 +10,24 @@ function AddPost() {
     const [imgchange , setimgchange] = useState()
     const [deschange , setdeschange] = useState()
     const [catchange , setcatchange] = useState('clothings')
+    const [userid, setuserid] = useState()
+    
     const nav = useNavigate()    
+
+
+    useEffect(() =>{
+        let token = localStorage.getItem('token')
+        let decode =jwtDecode(token)
+        setuserid(decode.user_id)
+    })
 
     const [post ,setpost] = useState({
         "postImage":undefined,
         "postTitle":"",
         "postPrice":0,
         "postDescription":"",
-        "postCategory":""
+        "postCategory":"",
+        "uid":''
     })
 
     const addTitle = (e) =>{
@@ -41,14 +51,15 @@ function AddPost() {
             "postTitle": titlechange,
             "postPrice":pricechange,
             "postDescription": deschange,
-            "postCategory":catchange
+            "postCategory":catchange,
+            "uid":userid
         })
     }
 
     let URL = url+'/api/post/'
     onsubmit =(e) => {
         e.preventDefault()
-        console.log(post)
+        assignValues()
         alert('creating post .... click OK and wait')
         axios.post(URL,post,{
             headers:{
@@ -59,7 +70,8 @@ function AddPost() {
             console.log(res)
             nav('/')
         }).catch((err) =>{
-            alert('something went wrong')
+            //alert(err.request.statusText)
+            alert(err.message)
         })
     }
     const oncancel = (e) => {
@@ -71,13 +83,14 @@ function AddPost() {
         <div onChange={assignValues} className='addpost'>
             <h1>ADD POST</h1>
             <form action="post">
-                <input type="text" placeholder='title' id='title' onChange={addTitle}/>
+                <textarea type="text" placeholder='title' id='title' onChange={addTitle}/>
                 <input type="file" placeholder='images' accept='image/jpeg, image/png, image/gif' onChange={addimg}/>
-                <input type="text" placeholder='description' name="description" id="description" onChange={addDes} />
+                <textarea type="text" placeholder='description' name="description" id="description" onChange={addDes} />
                 <input type="number" placeholder='price' onChange={addprice}/>
                 <div>
                     <span>category :</span>
                     <select  name="" id="" onChange={addCat}>
+                        
                         <option value="clothings">clothings</option>
                         <option value="automobiles">automobiles</option>
                         <option value="phones and accessories">phones and accessories</option>

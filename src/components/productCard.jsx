@@ -16,6 +16,8 @@ function ProductCard(props) {
         localStorage.setItem('productImage', props.postImage)
         localStorage.setItem('productPrice', props.postPrice)
         localStorage.setItem('productDescription', props.postdescription)
+        localStorage.setItem('productCategory', props.postcategory)
+        localStorage.setItem('uid',props.postuid)
         navigate('/product/detail')
     }
 
