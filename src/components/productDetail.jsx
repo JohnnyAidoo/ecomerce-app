@@ -6,7 +6,7 @@ import url from "./privateRouter";
 
 function ProductDetail() {
 
-    const [user, setuser] = useState('jjj')
+    const [user, setuser] = useState('...')
 
     const Title = localStorage.getItem('productName')
     const Image = localStorage.getItem('productImage')
