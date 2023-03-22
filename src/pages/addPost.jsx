@@ -93,7 +93,7 @@ function AddPost(props) {
     const oncancel = (e) => {
             
         alert('do want to cancel')
-        nav('/')
+        window.location.replace('/')
 }
     return ( 
         <div onChange={assignValues} className='addpost'>
