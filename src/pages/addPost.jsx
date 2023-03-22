@@ -1,10 +1,10 @@
 import React, { useEffect,useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import url from '../components/privateRouter';
 import jwtDecode from 'jwt-decode';
 
-function AddPost() {
+function AddPost(props) {
     const [titlechange , settitlechange] = useState('')
     const [pricechange , setpricechange] = useState('')
     const [imgchange , setimgchange] = useState()
@@ -13,7 +13,21 @@ function AddPost() {
     const [userid, setuserid] = useState()
     
     const nav = useNavigate()    
+    
+    const [user , setuser] = useState('')
+    const login = 'auth/login/'
+    let auth =  false
 
+
+    useEffect(() =>{
+        auth = false
+        let local_token = localStorage.getItem('token')
+        if (!local_token){
+            localStorage.setItem('PURL', '/addpost')
+            window.location.href = '/auth/login'
+
+        }
+    },[])
 
     useEffect(() =>{
         let token = localStorage.getItem('token')

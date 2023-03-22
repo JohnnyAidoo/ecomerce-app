@@ -36,7 +36,10 @@ function LoginPage(props) {
             passauth()
             token = data.data.access
             alert('Login Success')
-            navigate('/')    
+            let PURL = localStorage.getItem('PURL')
+            if (PURL) {
+                navigate(PURL)    
+            }else {navigate('/')}
         }).catch(err =>{
                 console.log(err)
                 alert('Invailed Username or Password')
