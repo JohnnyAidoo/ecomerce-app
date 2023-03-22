@@ -44,8 +44,8 @@ function LoginPage(props) {
             }else {navigate('/')}
         }).catch(err =>{
                 console.log(err)
-                setalertmessage(<Alert severity='error'>
-                    <AlertTitle>ERROR</AlertTitle>
+                setalertmessage(<Alert style={{position: 'static', top: 0, }} severity='error'>
+                    <AlertTitle >ERROR</AlertTitle>
                     Invalid Username or Password</Alert>)
             })            
     }
