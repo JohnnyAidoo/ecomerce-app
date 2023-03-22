@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./header";
 import url from "./privateRouter";
+import Products from "./products";
 
 function ProductDetail() {
 
@@ -48,7 +49,7 @@ function ProductDetail() {
                 <button>add to cart</button>
                 <h3>Description</h3>
                 <p>{Description }</p>
-                
+                <br />
             </div>
         </>
      );
