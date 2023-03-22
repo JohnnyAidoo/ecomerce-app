@@ -3,6 +3,7 @@ import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
 import url from '../components/privateRouter';
 import jwtDecode from 'jwt-decode';
+import { Alert } from '@mui/material';
 
 function AddPost(props) {
     const [titlechange , settitlechange] = useState('')
@@ -10,6 +11,7 @@ function AddPost(props) {
     const [imgchange , setimgchange] = useState()
     const [deschange , setdeschange] = useState()
     const [catchange , setcatchange] = useState('clothings')
+    const [alertmessage , setalertmessage] = useState()
     const [userid, setuserid] = useState()
     
     const nav = useNavigate()    
@@ -85,7 +87,7 @@ function AddPost(props) {
             nav('/')
         }).catch((err) =>{
             //alert(err.request.statusText)
-            alert(err.message)
+            setalertmessage(<Alert severity='error'>{err}</Alert>)
         })
     }
     const oncancel = (e) => {
@@ -95,6 +97,7 @@ function AddPost(props) {
 }
     return ( 
         <div onChange={assignValues} className='addpost'>
+            {alertmessage}
             <h1>ADD POST</h1>
             <form action="post">
                 <textarea type="text" placeholder='title' id='title' onChange={addTitle}/>

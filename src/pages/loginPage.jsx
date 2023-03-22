@@ -1,3 +1,4 @@
+import { Alert, AlertTitle } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import url from '../components/privateRouter';
 function LoginPage(props) {
     const [username, setusername] = useState('')
     const [password, setpassword] = useState('')
+    const [alertmessage, setalertmessage] = useState('')
     const navigate = useNavigate()
     let token = ''
     const usernamechange = (e) =>{
@@ -42,7 +44,9 @@ function LoginPage(props) {
             }else {navigate('/')}
         }).catch(err =>{
                 console.log(err)
-                alert('Invailed Username or Password')
+                setalertmessage(<Alert severity='error'>
+                    <AlertTitle>ERROR</AlertTitle>
+                    Invalid Username or Password</Alert>)
             })            
     }
     
@@ -52,6 +56,7 @@ function LoginPage(props) {
     }
     return (
     <div>
+    {alertmessage}
     <div className='loginPage'>
             <div className='card'>
                 <form  method="post" className='form'>
