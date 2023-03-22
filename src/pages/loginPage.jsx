@@ -1,6 +1,5 @@
 import { Alert, AlertTitle } from '@mui/material';
 import axios from 'axios';
-import ReactLoading from 'react-loading'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import url from '../components/privateRouter';
