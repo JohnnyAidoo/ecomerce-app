@@ -12,6 +12,13 @@ function Detail() {
     
     const id = useParams().id
 
+    const addtocart = () =>{
+        axios.post('https://fakestoreapi.com/carts',{
+            userId :1,
+            products:[{productId:id, quantity:1}]
+        })
+    }
+
     useEffect(() =>{
        
         axios.get(`https://fakestoreapi.com/products/${id}`).then((res) =>{
@@ -21,11 +28,10 @@ function Detail() {
             
         axios.get(`https://fakestoreapi.com/products/category/${product.category}`).then((res) =>{
         setproducts(res.data)
-        console.log(res.data)
         })
 
         
-    })
+    },[])
 
     return (
         <>
@@ -36,11 +42,12 @@ function Detail() {
             </div>
             <div className="w-1/2 flex flex-col">
                 <p className="font-semibold text-5xl py-10" >{product.title}</p>
-                <p className="text-5xl">{product.price}</p>
+                <p className="text-5xl">${product.price}</p>
                 <div className="border-solid py-5">
                 <h4 className="text-slate-500">Description</h4>
                 <p>{product.description}</p>
                 </div>
+                <button onClick={addtocart} className="bg-black text-white rounded-md w-1/2 p-2 text-2xl mt-5 hover:bg-gray-900" >Add To Cart</button>
             </div>
         </div>
 
@@ -56,7 +63,6 @@ function Detail() {
                 image={product.image}
                 />
             ))}
-            <ProductCard/>
         </div>
         </div>
         </>
