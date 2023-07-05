@@ -4,6 +4,7 @@ import Header from "../components/header";
 import ProductCard from "../components/productCard";
 import { useEffect, useState } from "react";
 
+
 function Home() {
 
     const [products, setproducts] = useState([])
