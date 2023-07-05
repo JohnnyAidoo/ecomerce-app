@@ -2,7 +2,7 @@ function ProductCard({title, price,image, rating, id}) {
     return (  
         <>
         <a href={`/products/${id}`}
-        className=" p-2 w-10/12 px-10 rounded-lg text-center border-2 border-solid hover:bg-slate-300 flex flex-col justify-around">
+        className=" p-2 w-full px-10 rounded-lg text-center border-2 border-solid hover:bg-slate-300 flex flex-col justify-around">
             <div className="bg-slate-100 shadow-sm w-full">
                 <img 
                 className="w-full"

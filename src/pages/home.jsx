@@ -7,6 +7,13 @@ import { useEffect, useState } from "react";
 function Home() {
 
     const [products, setproducts] = useState([])
+    const [spinner, setspinner] = useState()
+
+    useEffect(()=>{
+        if (document.readyState !== "complete"){
+           console.log('hi')
+        }
+    })
 
   useEffect(() =>{
     axios.get("https://fakestoreapi.com/products").then((response ) =>{
@@ -16,11 +23,12 @@ function Home() {
 
     return (
         <>
+        {spinner}
         <Header />
         <Ads/>
 
-        <h2 className="pl-20 font-bold text-4xl pb-10">Trending</h2>
-        <div className="grid grid-cols-4 pl-20 gap-y-10 gap-x-1">
+        <h2 className="ml-20 font-bold text-4xl pb-10">Trending</h2>
+        <div id="grid" className="p-10 grid grid-cols-1 gap-y-10 gap-x-1 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) =>(
                 <ProductCard
                 key={product.id}
@@ -30,7 +38,6 @@ function Home() {
                 image={product.image}
                 />
             ))}
-            <ProductCard/>
         </div>
         </>
     );
