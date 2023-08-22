@@ -20,7 +20,6 @@ function Category() {
 
     return (
         <>
-        <Header />
         <br />
         <br />
          <h2 className="ml-20 font-bold text-4xl pb-10">{name}</h2>
